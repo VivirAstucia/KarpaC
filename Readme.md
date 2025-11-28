@@ -1,9 +1,9 @@
 # KarpaC - Prototype1
 This is a smart chessboard project that takes chess to the next level by integrating a physical board with a digital interface. 
 
-[Prototype1](Project_Report/CB1.jpeg)
+![Prototype1](Project_Report/CB1.jpeg)
   
-[Prototype1](Project_Report/CB2.jpeg)
+![Prototype1](Project_Report/CB2.jpeg)
 
 ## Features
 - **Real-time Game Tracking**: Automatically detects and records moves made on the physical board.

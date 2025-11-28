@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-B">
+    <title>Karpa-C</title>
+    <style>
+        body { font-family: sans-serif; display: flex; padding: 20px; gap: 40px; }
+        .board { flex-shrink: 0; }
+        #board-container { min-width: 400px; min-height: 400px; }
+        .moves { border-left: 1px solid #ccc; padding-left: 20px; }
+        .moves ol { height: 380px; overflow-y: auto; }
+    </style>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="board">
+        <h2>Current Board State</h2>
+        <div id="board-container">
+            {{ key|safe }}
+        </div>
+    </div>
+    <div class="moves">
+        <h2>Move History</h2>
+        <ol id="move-list">
+            {% for move in moves %}
+                <li>{{ move }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <script>
+        var socket = io();
+
+        const boardContainer = document.getElementById('board-container');
+        const moveList = document.getElementById('move-list');
+
+        socket.on('board_update', function(data) {
+            console.log('Received board update:', data.move);
+            
+            boardContainer.innerHTML = data.svg;
+
+            if (data.move === 'RESET') {
+                moveList.innerHTML = '';
+            } else {
+                const newMoveItem = document.createElement('li');
+                newMoveItem.textContent = data.move;
+                moveList.appendChild(newMoveItem);
+                moveList.scrollTop = moveList.scrollHeight;
+            }
+        });
+
+        console.log('Socket.IO client connected and listening...');
+    </script>
+</body>
+</html>

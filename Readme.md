@@ -17,7 +17,7 @@ This is a smart chessboard project that takes chess to the next level by integra
 ### Hardware
 1. **Hall Effect Sensors**: Used to detect the position of chess pieces on the board.
 2. **Ws2812B LEDs**: RGB LEDs for visual feedback and effects.
-3. **Raspberry Pi**: Acts as the main controller for processing inputs and managing the game state.
+3. **Raspberry Pi 4b**: Acts as the main controller for processing inputs and managing the game state.
 4. **Chess Pieces**: 3d printed pieces with embedded neodymium magnets for reliable detection.
 5. **Chessboard**: A simple but elegant design with acrylic surfaces.
 6. **Power Supply**: A 5V 3A power supply to power the Raspberry Pi and LEDs.
